@@ -37,4 +37,8 @@ export class HeroesService {
   //     throw new Error(`Héroe indefinido`);
   //   }
   // }
+
+  getSuggestions(query: string): Observable<Hero[]> {
+    return this.http.get<Hero[]>(`${this._baseUrl}/heroes?q=${query}&_limit=5`);
+  }
 }

@@ -1,1 +1,65 @@
-<p>new-page works!</p>
+<h1>
+  Editar / Agregar
+  héroe
+  <small>Superman</small>
+</h1>
+
+<mat-divider class="mb-2"></mat-divider>
+
+<div class="pantalla-grande">
+  <div>
+    <mat-card>
+      <mat-card-content>
+        <form [formGroup]="formulario" (ngSubmit)="submit()" class="pantalla-chica">
+          <mat-form-field>
+            <mat-label for="superhero">Super héroe</mat-label>
+            <input id="superhero" type="text" matInput required formControlName="superHero">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label for="superhero">Alter ego</mat-label>
+            <input id="superhero" type="text" matInput required formControlName="alterEgo">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label for="superhero">Primera aparición</mat-label>
+            <input id="superhero" type="text" matInput required formControlName="firstAp">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label for="superhero">Personajes</mat-label>
+            <input id="superhero" type="text" matInput required formControlName="personajes">
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label for="superhero">Creador</mat-label>
+            <mat-select required>
+              <mat-option *ngFor="let publisher of publishers" [value]="publisher.id" formControlName="creador">
+                {{publisher.desc}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </form>
+
+        <div class="botones">
+          <button mat-flat-button color="warn">
+            Borrar
+          </button>
+
+          <button mat-flat-button color="primary" type="submit" (click)="submit()">
+            <mat-icon>save</mat-icon>
+            Guardar
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div>
+
+    <mat-card class="espacio-card">
+      <img [src]="" alt="imagen del héroe" mat-card-image>
+    </mat-card>
+
+  </div>
+</div>
